@@ -1,0 +1,28 @@
+{
+  "root": "apps/poli-e2e",
+  "sourceRoot": "apps/poli-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/poli-e2e/cypress.json",
+        "devServerTarget": "poli:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "poli:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/poli-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["poli"]
+}
